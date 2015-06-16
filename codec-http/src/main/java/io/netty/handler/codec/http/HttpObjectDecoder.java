@@ -419,7 +419,7 @@ public abstract class HttpObjectDecoder extends ByteToMessageDecoder {
     }
 
     protected boolean isContentAlwaysEmpty(HttpMessage msg) {
-        if (msg instanceof HttpResponse) {
+        if (TypeHelper.isHttpResponse(msg)) {
             HttpResponse res = (HttpResponse) msg;
             int code = res.getStatus().code();
 
