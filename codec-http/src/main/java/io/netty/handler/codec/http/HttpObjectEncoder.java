@@ -52,6 +52,10 @@ public abstract class HttpObjectEncoder<H extends HttpMessage> extends MessageTo
     private static final int ST_CONTENT_NON_CHUNK = 1;
     private static final int ST_CONTENT_CHUNK = 2;
 
+  static {
+    System.out.println("MILDRED!");
+  }
+
     @SuppressWarnings("RedundantFieldInitialization")
     private int state = ST_INIT;
 
