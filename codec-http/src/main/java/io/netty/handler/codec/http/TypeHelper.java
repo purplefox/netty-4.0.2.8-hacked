@@ -24,38 +24,52 @@ public final class TypeHelper {
 
   private static final Class<?> DEFAULT_HTTP_REQUEST_CLASS = DefaultHttpRequest.class;
   private static final Class<?> DEFAULT_FULL_HTTP_REQUEST_CLASS = DefaultFullHttpRequest.class;
-
   private static final Class<?> DEFAULT_LAST_HTTP_CONTENT_CLASS = DefaultLastHttpContent.class;
   private static final Class<?> DEFAULT_HTTP_CONTENT_CLASS = DefaultHttpContent.class;
   private static final Class<?> DEFAULT_HTTP_RESPONSE_CLASS = DefaultHttpResponse.class;
   private static final Class<?> DEFAULT_FULL_HTTP_RESPONSE_CLASS = DefaultFullHttpResponse.class;
 
+  private static final Class<?> ASSEMBLED_FULL_HTTP_REQUEST_CLASS = AssembledFullHttpRequest.class;
+  private static final Class<?> ASSEMBLED_LAST_HTTP_CONTENT_CLASS = AssembledLastHttpContent.class;
+  private static final Class<?> ASSEMBLED_HTTP_REQUEST_CLASS = AssembledHttpRequest.class;
+  private static final Class<?> ASSEMBLED_HTTP_RESPONSE_CLASS = AssembledHttpResponse.class;
+  private static final Class<?> ASSEMBLED_FULL_HTTP_RESPONSE_CLASS = AssembledFullHttpResponse.class;
+
+
   public static final boolean isHttpMessage(Object obj) {
     Class<?> clazz = obj.getClass();
     return clazz == DEFAULT_HTTP_REQUEST_CLASS || clazz == DEFAULT_FULL_HTTP_REQUEST_CLASS ||
-      clazz == DEFAULT_HTTP_RESPONSE_CLASS || clazz == DEFAULT_FULL_HTTP_RESPONSE_CLASS;
+      clazz == DEFAULT_HTTP_RESPONSE_CLASS || clazz == DEFAULT_FULL_HTTP_RESPONSE_CLASS ||
+      clazz == ASSEMBLED_HTTP_REQUEST_CLASS || clazz == ASSEMBLED_FULL_HTTP_REQUEST_CLASS ||
+      clazz == ASSEMBLED_HTTP_RESPONSE_CLASS || clazz == ASSEMBLED_FULL_HTTP_RESPONSE_CLASS;
   }
 
   public static final boolean isHttpRequest(Object obj) {
     Class<?> clazz = obj.getClass();
-    return clazz == DEFAULT_HTTP_REQUEST_CLASS || clazz == DEFAULT_FULL_HTTP_REQUEST_CLASS;
+    return clazz == DEFAULT_HTTP_REQUEST_CLASS || clazz == DEFAULT_FULL_HTTP_REQUEST_CLASS ||
+      clazz == ASSEMBLED_FULL_HTTP_REQUEST_CLASS || clazz == ASSEMBLED_FULL_HTTP_REQUEST_CLASS;
   }
 
   public static final boolean isHttpResponse(Object obj) {
     Class<?> clazz = obj.getClass();
-    return clazz == DEFAULT_HTTP_RESPONSE_CLASS || clazz == DEFAULT_FULL_HTTP_RESPONSE_CLASS;
+    return clazz == DEFAULT_HTTP_RESPONSE_CLASS || clazz == DEFAULT_FULL_HTTP_RESPONSE_CLASS ||
+      clazz == ASSEMBLED_FULL_HTTP_RESPONSE_CLASS || clazz == ASSEMBLED_HTTP_RESPONSE_CLASS;
   }
 
   public static final boolean isHttpContent(Object obj) {
     Class<?> clazz = obj.getClass();
     return clazz == DEFAULT_LAST_HTTP_CONTENT_CLASS || clazz == DEFAULT_HTTP_CONTENT_CLASS ||
-      clazz == DEFAULT_FULL_HTTP_RESPONSE_CLASS || clazz == DEFAULT_FULL_HTTP_REQUEST_CLASS;
+      clazz == DEFAULT_FULL_HTTP_RESPONSE_CLASS || clazz == DEFAULT_FULL_HTTP_REQUEST_CLASS ||
+      clazz == ASSEMBLED_LAST_HTTP_CONTENT_CLASS || clazz == ASSEMBLED_FULL_HTTP_REQUEST_CLASS ||
+      clazz == ASSEMBLED_FULL_HTTP_RESPONSE_CLASS;
   }
 
   public static final boolean isLastHttpContent(Object obj) {
     Class<?> clazz = obj.getClass();
     return clazz == DEFAULT_LAST_HTTP_CONTENT_CLASS ||
-      clazz == DEFAULT_FULL_HTTP_RESPONSE_CLASS || clazz == DEFAULT_FULL_HTTP_REQUEST_CLASS;
+      clazz == DEFAULT_FULL_HTTP_RESPONSE_CLASS || clazz == DEFAULT_FULL_HTTP_REQUEST_CLASS ||
+      clazz == ASSEMBLED_LAST_HTTP_CONTENT_CLASS || clazz == ASSEMBLED_FULL_HTTP_REQUEST_CLASS ||
+      clazz == ASSEMBLED_FULL_HTTP_RESPONSE_CLASS;
   }
 
   public static final boolean isWebsocketFrame(Object obj) {
