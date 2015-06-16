@@ -38,10 +38,12 @@ public final class TypeHelper {
 
   public static final boolean isHttpMessage(Object obj) {
     Class<?> clazz = obj.getClass();
-    return clazz == DEFAULT_HTTP_REQUEST_CLASS || clazz == DEFAULT_FULL_HTTP_REQUEST_CLASS ||
-      clazz == DEFAULT_HTTP_RESPONSE_CLASS || clazz == DEFAULT_FULL_HTTP_RESPONSE_CLASS ||
-      clazz == ASSEMBLED_HTTP_REQUEST_CLASS || clazz == ASSEMBLED_FULL_HTTP_REQUEST_CLASS ||
-      clazz == ASSEMBLED_HTTP_RESPONSE_CLASS || clazz == ASSEMBLED_FULL_HTTP_RESPONSE_CLASS;
+    return
+      clazz == ASSEMBLED_FULL_HTTP_RESPONSE_CLASS || clazz == ASSEMBLED_HTTP_RESPONSE_CLASS ||
+        //clazz == DEFAULT_HTTP_REQUEST_CLASS || clazz == DEFAULT_FULL_HTTP_REQUEST_CLASS ||
+      clazz == DEFAULT_HTTP_RESPONSE_CLASS || clazz == DEFAULT_FULL_HTTP_RESPONSE_CLASS;
+     // clazz == ASSEMBLED_HTTP_REQUEST_CLASS || clazz == ASSEMBLED_FULL_HTTP_REQUEST_CLASS ||
+
   }
 
   public static final boolean isHttpRequest(Object obj) {

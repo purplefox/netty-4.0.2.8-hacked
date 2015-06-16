@@ -97,4 +97,29 @@ public class AssembledFullHttpResponse extends AssembledHttpResponse implements 
   public HttpHeaders trailingHeaders() {
     return ((LastHttpContent) content).trailingHeaders();
   }
+  @Override
+  public boolean isRequest() {
+    return false;
+  }
+
+  @Override
+  public boolean isResponse() {
+    return true;
+  }
+
+  @Override
+  public boolean isMessage() {
+    return true;
+  }
+
+  @Override
+  public boolean isContent() {
+    return true;
+  }
+
+  @Override
+  public boolean isLast() {
+    return true;
+  }
+
 }

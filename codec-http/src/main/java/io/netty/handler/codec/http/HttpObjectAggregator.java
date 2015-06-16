@@ -18,13 +18,8 @@ package io.netty.handler.codec.http;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufHolder;
 import io.netty.buffer.CompositeByteBuf;
-import io.netty.buffer.DefaultByteBufHolder;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelPipeline;
+import io.netty.channel.*;
 import io.netty.handler.codec.DecoderResult;
 import io.netty.handler.codec.MessageToMessageDecoder;
 import io.netty.handler.codec.TooLongFrameException;
@@ -436,6 +431,31 @@ public class HttpObjectAggregator extends MessageToMessageDecoder<HttpObject> {
         public String toString() {
             return HttpMessageUtil.appendFullRequest(new StringBuilder(256), this).toString();
         }
+
+      @Override
+      public boolean isRequest() {
+        return true;
+      }
+
+      @Override
+      public boolean isResponse() {
+        return false;
+      }
+
+      @Override
+      public boolean isMessage() {
+        return true;
+      }
+
+      @Override
+      public boolean isContent() {
+        return true;
+      }
+
+      @Override
+      public boolean isLast() {
+        return true;
+      }
     }
 
     private static final class AggregatedFullHttpResponse extends AggregatedFullHttpMessage
@@ -496,5 +516,30 @@ public class HttpObjectAggregator extends MessageToMessageDecoder<HttpObject> {
         public String toString() {
             return HttpMessageUtil.appendFullResponse(new StringBuilder(256), this).toString();
         }
+      @Override
+      public boolean isRequest() {
+        return false;
+      }
+
+      @Override
+      public boolean isResponse() {
+        return true;
+      }
+
+      @Override
+      public boolean isMessage() {
+        return true;
+      }
+
+      @Override
+      public boolean isContent() {
+        return true;
+      }
+
+      @Override
+      public boolean isLast() {
+        return false;
+      }
+
     }
 }

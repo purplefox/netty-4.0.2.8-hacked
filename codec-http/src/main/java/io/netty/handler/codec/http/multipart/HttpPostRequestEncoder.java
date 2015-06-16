@@ -1144,6 +1144,31 @@ public class HttpPostRequestEncoder implements ChunkedInput<HttpContent> {
         public void setDecoderResult(DecoderResult result) {
             request.setDecoderResult(result);
         }
+
+      @Override
+      public boolean isRequest() {
+        return false;
+      }
+
+      @Override
+      public boolean isResponse() {
+        return true;
+      }
+
+      @Override
+      public boolean isMessage() {
+        return true;
+      }
+
+      @Override
+      public boolean isContent() {
+        return true;
+      }
+
+      @Override
+      public boolean isLast() {
+        return false;
+      }
     }
 
     private static final class WrappedFullHttpRequest extends WrappedHttpRequest implements FullHttpRequest {

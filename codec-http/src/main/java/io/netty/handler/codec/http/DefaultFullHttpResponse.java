@@ -118,4 +118,29 @@ public class DefaultFullHttpResponse extends DefaultHttpResponse implements Full
     public String toString() {
         return HttpMessageUtil.appendFullResponse(new StringBuilder(256), this).toString();
     }
+
+  @Override
+  public boolean isRequest() {
+    return false;
+  }
+
+  @Override
+  public boolean isResponse() {
+    return true;
+  }
+
+  @Override
+  public boolean isMessage() {
+    return true;
+  }
+
+  @Override
+  public boolean isContent() {
+    return true;
+  }
+
+  @Override
+  public boolean isLast() {
+    return true;
+  }
 }

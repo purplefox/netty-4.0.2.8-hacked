@@ -124,4 +124,29 @@ public class AssembledHttpRequest implements HttpContent, HttpRequest {
   public boolean release(int decrement) {
     return content.release(decrement);
   }
+
+  @Override
+  public boolean isRequest() {
+    return true;
+  }
+
+  @Override
+  public boolean isResponse() {
+    return false;
+  }
+
+  @Override
+  public boolean isMessage() {
+    return true;
+  }
+
+  @Override
+  public boolean isContent() {
+    return true;
+  }
+
+  @Override
+  public boolean isLast() {
+    return false;
+  }
 }

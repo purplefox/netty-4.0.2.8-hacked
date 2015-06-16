@@ -28,4 +28,14 @@ public interface HttpObject {
      * Do not call this method unless you know what you are doing.
      */
     void setDecoderResult(DecoderResult result);
+
+  boolean isRequest();
+
+  boolean isResponse();
+
+  boolean isMessage();
+
+  boolean isContent();
+
+  boolean isLast();
 }

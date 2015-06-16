@@ -110,4 +110,29 @@ public class DefaultLastHttpContent extends DefaultHttpContent implements LastHt
             }
         }
     }
+
+  @Override
+  public boolean isRequest() {
+    return false;
+  }
+
+  @Override
+  public boolean isResponse() {
+    return false;
+  }
+
+  @Override
+  public boolean isMessage() {
+    return false;
+  }
+
+  @Override
+  public boolean isContent() {
+    return true;
+  }
+
+  @Override
+  public boolean isLast() {
+    return true;
+  }
 }

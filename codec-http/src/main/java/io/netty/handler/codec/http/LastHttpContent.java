@@ -59,7 +59,32 @@ public interface LastHttpContent extends HttpContent {
             throw new UnsupportedOperationException("read only");
         }
 
-        @Override
+      @Override
+      public boolean isRequest() {
+        return false;
+      }
+
+      @Override
+      public boolean isResponse() {
+        return false;
+      }
+
+      @Override
+      public boolean isMessage() {
+        return false;
+      }
+
+      @Override
+      public boolean isContent() {
+        return true;
+      }
+
+      @Override
+      public boolean isLast() {
+        return true;
+      }
+
+      @Override
         public int refCnt() {
             return 1;
         }
@@ -88,6 +113,8 @@ public interface LastHttpContent extends HttpContent {
         public String toString() {
             return "EmptyLastHttpContent";
         }
+
+
     };
 
     HttpHeaders trailingHeaders();

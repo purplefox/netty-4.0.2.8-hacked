@@ -419,25 +419,25 @@ public abstract class HttpObjectDecoder extends ByteToMessageDecoder {
     }
 
     protected boolean isContentAlwaysEmpty(HttpMessage msg) {
-        if (TypeHelper.isHttpResponse(msg)) {
-            HttpResponse res = (HttpResponse) msg;
-            int code = res.getStatus().code();
-
-            // Correctly handle return codes of 1xx.
-            //
-            // See:
-            //     - http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html Section 4.4
-            //     - https://github.com/netty/netty/issues/222
-            if (code >= 100 && code < 200) {
-                // One exception: Hixie 76 websocket handshake response
-                return !(code == 101 && !res.headers().contains(HttpHeaders.Names.SEC_WEBSOCKET_ACCEPT));
-            }
-
-            switch (code) {
-                case 204: case 205: case 304:
-                    return true;
-            }
-        }
+//        if (TypeHelper.isHttpResponse(msg)) {
+//            HttpResponse res = (HttpResponse) msg;
+//            int code = res.getStatus().code();
+//
+//            // Correctly handle return codes of 1xx.
+//            //
+//            // See:
+//            //     - http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html Section 4.4
+//            //     - https://github.com/netty/netty/issues/222
+//            if (code >= 100 && code < 200) {
+//                // One exception: Hixie 76 websocket handshake response
+//                return !(code == 101 && !res.headers().contains(HttpHeaders.Names.SEC_WEBSOCKET_ACCEPT));
+//            }
+//
+//            switch (code) {
+//                case 204: case 205: case 304:
+//                    return true;
+//            }
+//        }
         return false;
     }
 

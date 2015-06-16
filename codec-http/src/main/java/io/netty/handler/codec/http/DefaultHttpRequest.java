@@ -92,4 +92,29 @@ public class DefaultHttpRequest extends DefaultHttpMessage implements HttpReques
     public String toString() {
         return HttpMessageUtil.appendRequest(new StringBuilder(256), this).toString();
     }
+
+  @Override
+  public boolean isRequest() {
+    return true;
+  }
+
+  @Override
+  public boolean isResponse() {
+    return false;
+  }
+
+  @Override
+  public boolean isMessage() {
+    return true;
+  }
+
+  @Override
+  public boolean isContent() {
+    return false;
+  }
+
+  @Override
+  public boolean isLast() {
+    return false;
+  }
 }

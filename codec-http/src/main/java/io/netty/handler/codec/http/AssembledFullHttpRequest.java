@@ -89,4 +89,29 @@ public class AssembledFullHttpRequest extends AssembledHttpRequest implements Fu
     super.retain(increment);
     return this;
   }
+
+  @Override
+  public boolean isRequest() {
+    return true;
+  }
+
+  @Override
+  public boolean isResponse() {
+    return false;
+  }
+
+  @Override
+  public boolean isMessage() {
+    return true;
+  }
+
+  @Override
+  public boolean isContent() {
+    return true;
+  }
+
+  @Override
+  public boolean isLast() {
+    return true;
+  }
 }

@@ -17,7 +17,7 @@ package io.netty.handler.codec.http;
 
 import io.netty.handler.codec.DecoderResult;
 
-public class DefaultHttpObject implements HttpObject {
+public abstract class DefaultHttpObject implements HttpObject {
 
     private DecoderResult decoderResult = DecoderResult.SUCCESS;
 

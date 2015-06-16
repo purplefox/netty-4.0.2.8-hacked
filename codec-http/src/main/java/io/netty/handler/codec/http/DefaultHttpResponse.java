@@ -71,4 +71,29 @@ public class DefaultHttpResponse extends DefaultHttpMessage implements HttpRespo
     public String toString() {
         return HttpMessageUtil.appendResponse(new StringBuilder(256), this).toString();
     }
+
+  @Override
+  public boolean isRequest() {
+    return false;
+  }
+
+  @Override
+  public boolean isResponse() {
+    return true;
+  }
+
+  @Override
+  public boolean isMessage() {
+    return true;
+  }
+
+  @Override
+  public boolean isContent() {
+    return false;
+  }
+
+  @Override
+  public boolean isLast() {
+    return false;
+  }
 }
